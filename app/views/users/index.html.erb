@@ -1,17 +1,34 @@
 
-<h2>User info</h2>
+<%= render 'books/list',{book: @book,user: @user} %>
+
+<h1>Users</h1>
+
+<table>
+  <thead>
+    <tr>
+     <th>image</th>
+     <th>name</th>
+     <th colspan="3"></th>
+    </tr>
+  </thead
+
+<% @users.each do |user| %>
+  <tbody>
+   <tr>
+    <th><%= image_tag user.get_image %></th>
+    <th><%= user.name %></th>
+    <th>
+        <%= link_to user_path(user.id) do %>
+        <%= "show" %>
+        <% end %>
+    </th>
+
+
+   </tr>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-<p>Find me in app/views/users/index.html.erb</p>
+  </tbody>
+<% end %>

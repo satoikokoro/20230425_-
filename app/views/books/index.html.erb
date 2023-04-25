@@ -1,29 +1,5 @@
-<h2>User info</h2>
 
-<% @users.each do |user| %>
-
-<div>
-  <p><%= image_tag 'sample-author1.jpg' %></p>
-</div>
-<% end %>
-
-<table>
-<% @users.each do |user| %>
-  <tbody>
-    <tr>
-      <th>name</th>
-      <th><%= user.name %></th>
-    </tr>
-      <tr>
-        <th>introduction</th>
-        <th><%= user.introduction %></th>
-      </tr>
-  </tbody>
-<% end %>
-</table>
-<br>
-<div><%= link_to "Edit", edit_user_path(@user) %> </div>
-
+<%= render 'list',{book: @book,user: @user} %>
 
 <p id="notice"></p>
 
@@ -39,43 +15,22 @@
   </thead>
 
 <% @books.each do |book| %>
+
   <tbody>
     <tr>
-      <th><%= book.title %></th>
+
+      <th><%= image_tag book.user.get_image %></th>
+
+
+      <th>
+        <%= link_to book_path(book.id) do %>
+        <%= book.title %>
+        <% end %>
+      </th>
+
       <th><%= book.body %></th>
     </tr>
   </tbody>
 <% end %>
 
 </table>
-
-<% if @book.errors.any? %>
-　<%= @book.errors.count %>errors prohibited this book from being saved:
-
-
-　<ul>
-  　<% @book.errors.full_messages.each do |message| %>
-  　<li><%= message %></li>
- 　　 <% end %>
-  </ul>
-    <% end %>
-
-
-<h2>New book</h2>
-
-
-
-<%= form_with model: @book do |f| %>
-
-<label>Title</Label
-><br>
-  <%= f.text_field :title %>
-<br>
-<br>
-<label>Opinion</label>
-<br>
-  <%= f.text_area :body %>
-<br>
-  <%= f.submit 'Create Book' %>
-
- <% end %>
