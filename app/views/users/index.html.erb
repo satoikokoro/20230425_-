@@ -1,34 +1,34 @@
+<p id="notice"></p>
 
-<%= render 'books/list',{book: @book,user: @user} %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'books/list',{book: @book,user: @user} %>
 
-<h1>Users</h1>
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
 
-<table>
-  <thead>
-    <tr>
-     <th>image</th>
-     <th>name</th>
-     <th colspan="3"></th>
-    </tr>
-  </thead
+      <table class="table">
+        <thead>
+          <tr>
+           <th>image</th>
+           <th>name</th>
+           <th colspan="3"></th>
+          </tr>
+        </thead>
 
-<% @users.each do |user| %>
-  <tbody>
-   <tr>
-    <th><%= image_tag user.get_image %></th>
-    <th><%= user.name %></th>
-    <th>
-        <%= link_to user_path(user.id) do %>
-        <%= "show" %>
-        <% end %>
-    </th>
-
-
-   </tr>
-
-
-
-
-
-  </tbody>
-<% end %>
+      <% @users.each do |user| %>
+         <tbody>
+           <tr>
+            <td><%= image_tag user.get_image,size:"100x100" %></td>
+            <td><%= user.name %></td>
+            <td>
+            <%= link_to user_path(user.id) do %>
+            <%= "Show" %>
+            <% end %>
+           </td>
+          </tr>
+         </tbody>
+      <% end %>
+    </div>
+  </div>
+</div>
