@@ -14,10 +14,11 @@
                 <tr>
                     <th>
                     <%= link_to user_path(@user.id) do %>
-                    <%= image_tag @user.get_image,size:"100x100" %><br>
+                    <%= image_tag @user.get_profile_image,size:"100x100" %><br>
                     <%= @book.user.name %>
                     <% end %>
                      </th>
+
                      <th><%= link_to book_path(@book.id) do %>
                         <%= @book.title %>
                         <% end %></th>
@@ -25,7 +26,7 @@
 
                      <th>
                     <% if @user == current_user %>
-                    <%= link_to "edit",edit_book_path(@book.id),class:"btn btn-sm btn-success" %>
+                    <%= link_to "Edit",edit_book_path(@book.id),class:"btn btn-sm btn-success" %>
                     <% end %>
                      </th>
                      <th>

@@ -32,9 +32,11 @@
 
     <tbody>
       <tr>
-
-        <th><%= image_tag book.user.get_image,size:"100x100" %></th>
-
+        <th>
+        <%= link_to user_path(book.user.id) do %>
+        <%= image_tag book.user.get_profile_image,size:"100x100" %><br>
+        <% end %>
+        </th>
 
         <th>
           <%= link_to book_path(book.id) do %>
@@ -47,7 +49,7 @@
     </tbody>
   <% end %>
 
-  </table>
+    </table>
 
     </div>
   </div>
